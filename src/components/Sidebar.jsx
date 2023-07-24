@@ -1,7 +1,10 @@
+import usePos from '../hooks/usePos';
 import Category from "./Category"
-import { categories } from "../data/categories"
 
 export default function Sidebar() {
+
+  const { categories } = usePos()
+
   return (
     <aside className="md:w-72">
       <div className="p-4">

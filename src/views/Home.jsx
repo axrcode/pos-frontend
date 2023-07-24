@@ -1,10 +1,16 @@
+import { products as data } from '../data/products'
 import Product from '../components/Product';
-import { products } from '../data/products'
+import usePos from '../hooks/usePos';
 
 export default function Home() {
+
+  const { categoryCurrent } = usePos()
+
+  const products = data.filter(product => product.category_id === categoryCurrent.id)
+
   return (
     <>
-      <h1 className="text-4xl font-black">Home</h1>
+      <h2 className="text-4xl font-black">{categoryCurrent.name}</h2>
       <p className="text-2xl my-10">
         Elige y personaliza tu pedido a continuación.
       </p>
